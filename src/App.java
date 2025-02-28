@@ -1,22 +1,32 @@
-import java.util.Scanner;
+
+
+import javax.swing.JOptionPane;
+
+import Servicios.Dispensador;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        final Dispensador manejadoraBase = new Dispensador();
+        int montoRetirar=0;
+        boolean entradaCorrecta = false;
         
-        System.out.println("Por favor ingresa la cantidad de dinero a retirar");
-        Scanner scanner = new Scanner(System.in);
-        int cantidad = scanner.nextInt();
-        validarSolicitud(cantidad);
-       
-    }
+        while(!entradaCorrecta){
+        String monto = JOptionPane.showInputDialog("Ingresa el monto a retirar");
 
-    
-    public static boolean validarSolicitud(int cantidad) {
-        boolean multiploDe5 = false;
-        if(cantidad % 5000==0){
-            multiploDe5 = true;
-            System.out.println("es valido");
+        try {
+            montoRetirar= Integer.parseInt(monto);
+            
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "El valor ingresado no es correcto, verifica ingresar solo numeros enteros", "entrada incorrecta",
+                    0);
+
         }
-        return multiploDe5;
+        
+        entradaCorrecta = true;
+    }
+    manejadoraBase.solicitud(montoRetirar);
     }
 }
