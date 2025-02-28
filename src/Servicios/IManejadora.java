@@ -9,6 +9,10 @@ public interface IManejadora {
    public void setNext(IManejadora manejadora);
 
    public IManejadora getNext();
+
+   public int getBilletesEntregados();
+
+   public void setBilletesEntregados(int billetesEntregados);
     
 
 }

@@ -1,27 +1,33 @@
 package Servicios;
 
-import javax.swing.JOptionPane;
+
 
 public class Dispensador implements IManejadora{
     private IManejadora siguienteManejadora;
+    private int BilletesEntregados=0;
+    ManejadorBillete100 primerManejador = new ManejadorBillete100();
+    ManejadorBillete50 segundoManejador = new ManejadorBillete50();
+    ManejadorBillete20 tercerManejador = new ManejadorBillete20();
+    ManejadorBillete10 cuartoManejador = new ManejadorBillete10();
+    ManejadorBillete5 quintoManejador = new ManejadorBillete5();
 
     @Override
     public void solicitud(int montoRetirar) {
 
         
-        ManejadorBillete100 primerManejador = new ManejadorBillete100();
         setNext(primerManejador);
+        primerManejador.getBilletesEntregados();
         
 
-        ManejadorBillete50 segundoManejador = new ManejadorBillete50();
+        
         primerManejador.setNext(segundoManejador);
 
-        ManejadorBillete20 tercerManejador = new ManejadorBillete20();
+        
         segundoManejador.setNext(tercerManejador);
 
-        ManejadorBillete10 cuartoManejador = new ManejadorBillete10();
+        
         tercerManejador.setNext(cuartoManejador);
-        ManejadorBillete5 quintoManejador = new ManejadorBillete5();
+        
         cuartoManejador.setNext(quintoManejador);
         primerManejador.solicitud(montoRetirar);
 
@@ -37,6 +43,35 @@ public class Dispensador implements IManejadora{
     @Override
     public IManejadora getNext() {
         return siguienteManejadora;
+    }
+
+    @Override
+    public int getBilletesEntregados() {
+        return BilletesEntregados;
+    }
+
+    @Override
+    public void setBilletesEntregados(int billetesEntregados) {
+        this.BilletesEntregados = BilletesEntregados;
+    }
+
+    public int billetes100Entregados () {
+       return primerManejador.getBilletesEntregados();
+    }
+
+    public int billetes50Entregados () {
+        return segundoManejador.getBilletesEntregados();
+    }
+
+    public int billetes20Entregados () {
+        return tercerManejador.getBilletesEntregados();
+    }
+
+    public int billetes10Entregados () {
+        return cuartoManejador.getBilletesEntregados();
+    }
+    public int billetes5Entregados () {
+        return quintoManejador.getBilletesEntregados();
     }
 
     

@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class ManejadorBillete5 implements IManejadora {
   private IManejadora siguienteManejadora;
+  private int billetesEntregados = 0;
 
   @Override
   public void solicitud(int montoRetirar) {
@@ -12,10 +13,10 @@ public class ManejadorBillete5 implements IManejadora {
     if (montoRetirar == 5000) {
       if (montoRetirar % 5000 == 0) {
         int cantidadBilletes = montoRetirar / 5000;
-        JOptionPane.showMessageDialog(null, "El dispensador te ha entregado " + cantidadBilletes + " de $5.000 pesos",
-            "TRANSACCION EXITOSA", 1);
+
+        setBilletesEntregados(cantidadBilletes);
       } else {
-        
+
       }
 
     } else {
@@ -32,6 +33,16 @@ public class ManejadorBillete5 implements IManejadora {
   @Override
   public IManejadora getNext() {
     return siguienteManejadora;
+  }
+
+  @Override
+  public int getBilletesEntregados() {
+    return billetesEntregados;
+  }
+
+  @Override
+  public void setBilletesEntregados(int billetesEntregados) {
+    this.billetesEntregados = billetesEntregados;
   }
 
 }
