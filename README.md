@@ -1,18 +1,6 @@
-## Getting Started
+El patron de cadena esta implementado, pero solo sirve cuando devuelve billetes de la misma denominacion.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Se requiere ir concatenando en una cadena de texto, la cantidad de billetes que va a ir devolviendo mientras pasa por los manejadores.
+Implementar un menu que no se cierre hasta que el usuario lo solicite.
+Implementar un constructor opcional, para alimentar el dispensador, de esta manera los billetes se pueden ir agotando.
+crear un menu con las 3 funciones, dispensar dinero, alimentar el dispensador, salir.
